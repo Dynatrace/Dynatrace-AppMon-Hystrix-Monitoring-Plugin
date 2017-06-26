@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Bundle-Vendor: dynaTrace Community
+Bundle-ClassPath: .,lib/com.dynatrace.diagnostics.sdk.jar,lib/json-sim
+ ple-1.1.1.jar
+Bundle-Version: 1.0.7
+Bundle-Name: Hystrix Monitor
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.dynatrace.HystrixMonitor;singleton:=true
+

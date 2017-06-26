@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 4.2.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.HystrixMonitor" name="Hystrix Monitor">
+    <information>
+      <category value="" />
+      <displayname value="Hystrix Monitor" />
+      <description value="This plugin will open a stream with a Hystrix host for JSON based Hystrix metrics." />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="Port" label="Port" type="string" description="Port on the server used by the restful interface." default="15672" multiline="false" />
+      <property key="Username" label="Username" type="string" description="The username to use for authentication to the restful interface" default="" multiline="false" />
+      <property key="Password" label="Password" type="password" description="The password for the username used to authenticate to the restful interface." default="" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.HystrixMonitor.monitor" name="Hystrix Monitor">
+    <plugin configid="com.dynatrace.HystrixMonitor" class="com.dynatrace.HystrixMonitor.HystrixMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.HystrixMonitor.metricgroup1" name="Hystrix Command">
+    <metricgroup monitorid="com.dynatrace.HystrixMonitor.monitor">
+      <metric defaultrate="purepath" name="isCircuitBreakerOpen" unit="number" />
+      <metric defaultrate="purepath" name="errorCount" unit="number" />
+      <metric defaultrate="purepath" name="rollingCountCollapsedRequests" unit="number" />
+      <metric defaultrate="purepath" name="errorPercentage" unit="percent" />
+      <metric defaultrate="purepath" name="requestCount" unit="number" />
+      <metric defaultrate="purepath" name="rollingCountExceptionsThrown" unit="number" />
+      <metric defaultrate="purepath" name="rollingCountFailure" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountFallbackFailure" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountFallbackRejection" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountFallbackSuccess" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountResponsesFromCache" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountSemaphoreRejected" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountShortCircuited" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountSuccess" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountThreadPoolRejected" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountTimeout" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentConcurrentExecutionCount" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="latencyExecute_mean" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="latencyTotal_mean" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerRequestVolumeThreshold" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerSleepWindowInMilliseconds" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerErrorThresholdPercentage" unit="percent" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerForceOpen" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerForceClosed" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_circuitBreakerEnabled" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_executionIsolationThreadTimeoutInMilliseconds" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_executionIsolationThreadInterruptOnTimeout" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_executionIsolationThreadPoolKeyOverride" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_executionIsolationSemaphoreMaxConcurrentRequests" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_fallbackIsolationSemaphoreMaxConcurrentRequests" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_metricsRollingStatisticalWindowInMilliseconds" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_requestCacheEnabled" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_requestLogEnabled" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="reportingHosts" unit="number" description="My metric description ..." />
+    </metricgroup>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.HystrixMonitor.metricgroup2" name="Hystrix Thread Pool">
+    <metricgroup monitorid="com.dynatrace.HystrixMonitor.monitor">
+      <metric defaultrate="purepath" name="currentActiveCount" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentCompletedTaskCount" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentCorePoolSize" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentLargestPoolSize" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentMaximumPoolSize" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentPoolSize" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentQueueSize" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="currentTaskCount" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingCountThreadsExecuted" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="rollingMaxActiveThreads" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_queueSizeRejectionThreshold" unit="number" description="My metric description ..." />
+      <metric defaultrate="purepath" name="propertyValue_metricsRollingStatisticalWindowInMilliseconds" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="reportingHosts" unit="number" description="My metric description ..." />
+    </metricgroup>
+  </extension>
+</plugin>
